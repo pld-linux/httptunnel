@@ -15,15 +15,6 @@
 # Get network config
 . /etc/sysconfig/network
 
-# Set defaults
-#OPTION1=""	# Strings
-#OPTION2="-q"	#
-#OPTION3=	# Values
-#OPTION4=5	#
-
-# Get service config - may override defaults
-#[ -f /etc/sysconfig/httptunnel ] && . /etc/sysconfig/httptunnel
-
 # Check that networking is up.
 if is_yes "${NETWORKING}"; then
 	if [ ! -f /var/lock/subsys/network ]; then
@@ -75,25 +66,6 @@ case "$1" in
         $0 stop
 	$0 start
         ;;
-  reload)
-	if [ -f /var/lock/subsys/httptunnel ]; then
-		# show "Reload %s service" httptunnel
-		msg_reloading httptunnel
-		killproc httptunnel -HUP
-		RETVAL=$?
-	else
-		# show "%s service is not running." httptunnel
-		msg_not_running httptunnel
-		RETVAL=1
-	fi
-	;;
-  force-reload)
-  	# if program allows reloading without stopping
-	$0 reload
-
-	# or if it doesn't
-	$0 stop && $0 start
-	;;
   status)
 	status httptunnel
 	RETVAL=$?
