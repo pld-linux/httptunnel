@@ -6,8 +6,6 @@ Version:	3.3
 Release:	2
 License:	GPL
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.nocrew.org/pub/nocrew/unix/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac_am_fixes.patch
 Patch1:		%{name}-remove_port.patch
