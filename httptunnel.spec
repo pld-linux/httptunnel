@@ -1,7 +1,7 @@
 Summary:	Tunnelizes connection via http
 Summary(pt):	Tuneliza conexões via http
 Name:		httptunnel
-Version:	3.2
+Version:	3.3
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
