@@ -87,7 +87,7 @@ HTTP tunnel server.
 Server tunelu HTTP.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 %patch1 -p1
 
@@ -117,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %post server
 /sbin/chkconfig --add httptunnel
 if [ -r /var/lock/subsys/httptunnel ]; then
-        /etc/rc.d/init.d/httptunnel restart >&2
+	/etc/rc.d/init.d/httptunnel restart >&2
 else
 	echo "Run \"/etc/rc.d/init.d/httptunnel start\" to start HTTP tunnel daemons."
 fi
@@ -125,9 +125,9 @@ fi
 
 %preun server
 if [ "$1" = "0" ]; then
-        if [ -r /var/lock/subsys/httptunnel ]; then
-                /etc/rc.d/init.d/httptunnel stop >&2
-        fi
+	if [ -r /var/lock/subsys/httptunnel ]; then
+		/etc/rc.d/init.d/httptunnel stop >&2
+	fi
 	/sbin/chkconfig --del httptunnel
 fi
 
