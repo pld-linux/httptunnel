@@ -1,0 +1,6 @@
+# Configuration file for httptunnel
+
+# Syntax:
+# listen-port	forward-host:port
+# Example (forward locally accessible ssh server on 192.168.13.3):
+# 1022		192.168.13.3:22
