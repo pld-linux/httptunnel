@@ -7,6 +7,7 @@ Release:	3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.nocrew.org/pub/nocrew/unix/%{name}-%{version}.tar.gz
+# Source0-md5:	493cc0f5f21e9955db27ee9cd9a976d5
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	htc.respawn
