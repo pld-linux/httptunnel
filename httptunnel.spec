@@ -1,6 +1,6 @@
-Summary:	Tunnelizes connection via http
-Summary(pl):	Tunelowanie po³±czeñ po http
-Summary(pt):	Tuneliza conexões via http
+Summary:	Tunnelizes connection via HTTP
+Summary(pl):	Tunelowanie po³±czeñ po HTTP
+Summary(pt):	Tuneliza conexões via HTTP
 Name:		httptunnel
 Version:	3.3
 Release:	3
