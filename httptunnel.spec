@@ -3,10 +3,13 @@ Summary(pl):	Tunelowanie po³±czeñ po http
 Summary(pt):	Tuneliza conexões via http
 Name:		httptunnel
 Version:	3.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.nocrew.org/pub/nocrew/unix/%{name}-%{version}.tar.gz
+Source1:	%{name}.init
+Source2:	%{name}.sysconfig
+Source3:	htc.respawn
 Patch0:		%{name}-ac_am_fixes.patch
 Patch1:		%{name}-remove_port.patch
 URL:		http://www.nocrew.org/software/httptunnel.html
@@ -56,6 +59,30 @@ httptunnel är skriven och underhållen av Lars Brinkhoff. Se filen
 AUTHORS för mer information om vilka som har bidragit till detta
 paket.
 
+%package client
+Summary:	HTTP tunnel client
+Summary(pl):	Klient tunela HTTP
+Group:		Networking/Daemons
+Requires:	%{name} = %{version}
+
+%description client
+HTTP tunnel client.
+
+%description client -l pl
+Klient tunela HTTP.
+
+%package server
+Summary:	HTTP tunnel server
+Summary(pl):	Server tunela HTTP
+Group:		Networking/Daemons
+Requires:	%{name} = %{version}
+
+%description server
+HTTP tunnel server.
+
+%description server -l pl
+Server tunela HTTP.
+
 %prep
 %setup  -q
 %patch0 -p1
@@ -72,8 +99,31 @@ rm -rf missing port
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/{rc.d/init.d,sysconfig}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
+install %{SOURCE2} $RPM_BUILD_ROOT/%{_sysconfdir}/sysconfig/%{name}
+install %{SOURCE3} $RPM_BUILD_ROOT/%{_bindir}
+
+%post server
+/sbin/chkconfig --add httptunnel
+if [ -r /var/lock/subsys/httptunnel ]; then
+        /etc/rc.d/init.d/httptunnel restart >&2
+else
+	echo "Run \"/etc/rc.d/init.d/httptunnel start\" to start HTTP tunnel daemons."
+fi
+
+
+%preun server
+if [ "$1" = "0" ]; then
+        if [ -r /var/lock/subsys/httptunnel ]; then
+                /etc/rc.d/init.d/httptunnel stop >&2
+        fi
+	/sbin/chkconfig --del httptunnel
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -81,6 +131,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog DISCLAIMER FAQ HACKING NEWS README TODO
-%attr(755,root,root) %{_bindir}/htc
-%attr(755,root,root) %{_bindir}/hts
 %{_mandir}/man1/*
+
+%files client
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/htc
+%attr(755,root,root) %{_bindir}/htc.respawn
+
+%files server
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/hts
+%attr(750,root,root) %{_sysconfdir}/rc.d/init.d/*
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/sysconfig/*
