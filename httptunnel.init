@@ -34,7 +34,7 @@ case "$1" in
 	if [ ! -f /var/lock/subsys/httptunnel ]; then
 		# show "Starting %s service" httptunnel
 		msg_starting httptunnel
-		awk '/^[!#]/ { print $0; }' \
+		awk '/^[^#]/ { print $0; }' \
 			< /etc/sysconfig/httptunnel \
 			| while read LISTEN_PORT FWD_HOST_PORT; do
 			daemon hts.respawn -F "$FWD_HOST_PORT" "$LISTEN_PORT"
