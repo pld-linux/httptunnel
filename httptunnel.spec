@@ -63,7 +63,7 @@ paket.
 
 %build
 rm -rf missing port
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
