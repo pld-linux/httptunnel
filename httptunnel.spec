@@ -33,7 +33,7 @@ AUTHORS for more information about contributors to this package.
 httptunnel tworzy dwukierunkow± wirtualn± drogê dla danych tunelowan±
 przez ¿±dania HTTP. ¯±dania mog± byæ wysy³ane przez HTTP proxy, je¶li
 jest taka potrzeba. Program jest przydatny dla u¿ytkowników za bardzo
-restryktywnymi firewallami. Je¿eli dostêp do WWW jest przez proxy
+restrykcyjnymi firewallami. Je¿eli dostêp do WWW jest przez proxy
 HTTP, mo¿na u¿ywaæ httptunnelu i np. telnetu lub PPP, aby po³±czyæ siê
 z komputerem za firewallem.
 
