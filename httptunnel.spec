@@ -1,4 +1,5 @@
 Summary:	Tunnelizes connection via http
+Summary(pl):	Tunelowanie po³±czeñ po http
 Summary(pt):	Tuneliza conexões via http
 Name:		httptunnel
 Version:	3.3
@@ -25,6 +26,14 @@ the firewall.
 
 httptunnel is written and maintained by Lars Brinkhoff. See the file
 AUTHORS for more information about contributors to this package.
+
+%description -l pl
+httptunnel tworzy dwukierunkow± wirtualn± drogê dla danych tunelowan±
+przez ¿±dania HTTP. ¯±dania mog± byæ wysy³ane przez HTTP proxy, je¶li
+jest taka potrzeba. Program jest przydatny dla u¿ytkowników za bardzo
+restryktywnymi firewallami. Je¿eli dostêp do WWW jest przez proxy
+HTTP, mo¿na u¿ywaæ httptunnelu i np. telnetu lub PPP, aby po³±czyæ siê
+z komputerem za firewallem.
 
 %description -l pt_BR
 httptunnel cria um caminho virtual bidirecional tunelado em
