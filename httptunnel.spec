@@ -102,13 +102,13 @@ rm -rf missing port
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/{rc.d/init.d,sysconfig}
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/%{name}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/%{name}
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/%{name}
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/%{name}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_bindir}
 
 %clean
@@ -144,5 +144,5 @@ fi
 %files server
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/hts
-%attr(750,root,root) %{_sysconfdir}/rc.d/init.d/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/sysconfig/*
+%attr(754,root,root) /etc/rc.d/init.d/*
+%config(noreplace) %verify(not size mtime md5) /etc/sysconfig/*
