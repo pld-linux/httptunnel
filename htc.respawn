@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while :; do
+	htc -w "$@"
+	sleep 1
+done
