@@ -62,7 +62,7 @@ paket.
 
 %package client
 Summary:	HTTP tunnel client
-Summary(pl):	Klient tunela HTTP
+Summary(pl):	Klient tunelu HTTP
 Group:		Networking/Daemons
 Requires:	%{name} = %{version}
 
@@ -70,19 +70,21 @@ Requires:	%{name} = %{version}
 HTTP tunnel client.
 
 %description client -l pl
-Klient tunela HTTP.
+Klient tunelu HTTP.
 
 %package server
 Summary:	HTTP tunnel server
-Summary(pl):	Server tunela HTTP
+Summary(pl):	Server tunelu HTTP
 Group:		Networking/Daemons
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}
 
 %description server
 HTTP tunnel server.
 
 %description server -l pl
-Server tunela HTTP.
+Server tunelu HTTP.
 
 %prep
 %setup  -q
@@ -105,9 +107,12 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/{rc.d/init.d,sysconfig}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
-install %{SOURCE2} $RPM_BUILD_ROOT/%{_sysconfdir}/sysconfig/%{name}
-install %{SOURCE3} $RPM_BUILD_ROOT/%{_bindir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/%{name}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/%{name}
+install %{SOURCE3} $RPM_BUILD_ROOT%{_bindir}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post server
 /sbin/chkconfig --add httptunnel
@@ -125,9 +130,6 @@ if [ "$1" = "0" ]; then
         fi
 	/sbin/chkconfig --del httptunnel
 fi
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
