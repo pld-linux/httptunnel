@@ -65,7 +65,7 @@ paket.
 rm -rf missing port
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure
 %{__make}
 
