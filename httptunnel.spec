@@ -2,13 +2,17 @@ Summary:	Tunnelizes connection via http
 Summary(pt):	Tuneliza conexões via http
 Name:		httptunnel
 Version:	3.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.nocrew.org/pub/nocrew/unix/%{name}-%{version}.tar.gz
+Patch0:		%{name}-ac_am_fixes.patch
+Patch1:		%{name}-remove_port.patch
 URL:		http://www.nocrew.org/software/httptunnel.html
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,10 +50,16 @@ AUTHORS för mer information om vilka som har bidragit till detta
 paket.
 
 %prep
-%setup -q
+%setup  -q
+%patch0 -p1
+%patch1 -p1
 
 %build
-%configure2_13
+rm -rf missing port
+aclocal
+autoconf
+automake -a -c
+%configure
 %{__make}
 
 %install
