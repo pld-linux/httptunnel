@@ -2,7 +2,7 @@
 #
 # httptunnel	httptunnel short service description
 #
-# chkconfig:    345  90 36
+# chkconfig:	345  90 36
 #
 # description:	httptunnel long service description
 #
@@ -47,10 +47,10 @@ case "$1" in
 		msg_already_running httptunnel
 		exit 1
 	fi
-        ;;
+	;;
   stop)
-        # Stop daemons.
-        # show "Stopping %s service" httptunnel
+	# Stop daemons.
+	# show "Stopping %s service" httptunnel
 	if [ -f /var/lock/subsys/httptunnel ]; then
 		msg_stopping httptunnel
 		killproc hts.respawn
@@ -61,19 +61,19 @@ case "$1" in
 		msg_not_running httptunnel
 		exit 1
 	fi	
-        ;;
-  restart)
-        $0 stop
+	;;
+  restart|reload)
+	$0 stop
 	$0 start
-        ;;
+	;;
   status)
 	status httptunnel
 	RETVAL=$?
-        ;;
+	;;
   *)
-        # show "Usage: %s {start|stop|status|restart|reload|force-reload}" $0
-	msg_usage "$0 {start|stop|status|restart|reload|force-reload}"
-        exit 1
+	# show "Usage: %s {start|stop|restart|reload|status}" $0
+	msg_usage "$0 {start|stop|restart|reload|status}"
+	exit 1
 esac
 
 exit $RETVAL
