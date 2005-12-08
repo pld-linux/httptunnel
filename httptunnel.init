@@ -52,7 +52,7 @@ case "$1" in
 		rm -f /var/lock/subsys/httptunnel
 	else
 		msg_not_running httptunnel
-	fi	
+	fi
 	;;
   restart|force-reload)
 	$0 stop
