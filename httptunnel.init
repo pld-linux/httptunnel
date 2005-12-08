@@ -18,7 +18,6 @@
 # Check that networking is up.
 if is_yes "${NETWORKING}"; then
 	if [ ! -f /var/lock/subsys/network -a "$1" != stop -a "$1" != status ]; then
-		# nls "ERROR: Networking is down. %s can't be run." httptunnel
 		msg_network_down httptunnel
 		exit 1
 	fi
@@ -32,7 +31,6 @@ case "$1" in
   start)
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/httptunnel ]; then
-		# show "Starting %s service" httptunnel
 		msg_starting httptunnel
 		awk '/^[^#]/ { print $0; }' \
 			< /etc/sysconfig/httptunnel \
@@ -43,19 +41,16 @@ case "$1" in
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/httptunnel
 	else
-		# show "%s service is already running." httptunnel
 		msg_already_running httptunnel
 	fi
 	;;
   stop)
 	# Stop daemons.
-	# show "Stopping %s service" httptunnel
 	if [ -f /var/lock/subsys/httptunnel ]; then
 		msg_stopping httptunnel
 		killproc hts.respawn
 		rm -f /var/lock/subsys/httptunnel
 	else
-		# show "%s service is not running." httptunnel
 		msg_not_running httptunnel
 	fi	
 	;;
@@ -69,7 +64,6 @@ case "$1" in
 	exit $?
 	;;
   *)
-	# show "Usage: %s {start|stop|restart|force-reload|status}" $0
 	msg_usage "$0 {start|stop|restart|force-reload|status}"
 	exit 3
 esac
