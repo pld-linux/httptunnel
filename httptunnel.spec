@@ -76,9 +76,9 @@ Klient tunelu HTTP.
 Summary:	HTTP tunnel server
 Summary(pl):	Server tunelu HTTP
 Group:		Networking/Daemons
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}
+Requires:	rc-scripts
 
 %description server
 HTTP tunnel server.
@@ -145,4 +145,4 @@ fi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/hts
 %attr(754,root,root) /etc/rc.d/init.d/*
-%config(noreplace) %verify(not size mtime md5) /etc/sysconfig/*
+%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/*
