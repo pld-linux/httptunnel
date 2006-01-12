@@ -64,7 +64,7 @@ paket.
 Summary:	HTTP tunnel client
 Summary(pl):	Klient tunelu HTTP
 Group:		Networking/Daemons
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description client
 HTTP tunnel client.
@@ -77,7 +77,7 @@ Summary:	HTTP tunnel server
 Summary(pl):	Server tunelu HTTP
 Group:		Networking/Daemons
 Requires(post,preun):	/sbin/chkconfig
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	rc-scripts
 
 %description server
