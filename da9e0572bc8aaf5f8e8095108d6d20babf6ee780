@@ -1,0 +1,2 @@
+- fix improper use of %{_sysconfdir}
+- fix attributes
