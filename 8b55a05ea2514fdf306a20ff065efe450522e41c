@@ -1,0 +1,5 @@
+- Release 3.
+- Added init script for server.
+- Added config file for server.
+- Splitted into "client" and "server" subpackages.
+  TODO: config file and rc.script for client.
