@@ -16,6 +16,7 @@ Patch1:		%{name}-remove_port.patch
 URL:		http://www.nocrew.org/software/httptunnel.html
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -116,18 +117,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post server
 /sbin/chkconfig --add httptunnel
-if [ -r /var/lock/subsys/httptunnel ]; then
-	/etc/rc.d/init.d/httptunnel restart >&2
-else
-	echo "Run \"/etc/rc.d/init.d/httptunnel start\" to start HTTP tunnel daemons."
-fi
-
+%service httptunnel restart "HTTP tunnel daemons"
 
 %preun server
 if [ "$1" = "0" ]; then
-	if [ -r /var/lock/subsys/httptunnel ]; then
-		/etc/rc.d/init.d/httptunnel stop >&2
-	fi
+	%service httptunnel stop
 	/sbin/chkconfig --del httptunnel
 fi
 
