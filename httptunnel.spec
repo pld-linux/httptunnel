@@ -3,7 +3,7 @@ Summary(pl):	Tunelowanie po³±czeñ po HTTP
 Summary(pt):	Tuneliza conexões via HTTP
 Name:		httptunnel
 Version:	3.3
-Release:	3
+Release:	4
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.nocrew.org/pub/nocrew/unix/%{name}-%{version}.tar.gz
