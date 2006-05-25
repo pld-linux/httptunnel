@@ -49,7 +49,7 @@ computador fora do firewall.
 httptunnel é escrito e mantido por Lars Brinkhoff. Veja o arquivo
 AUTHORS para mais informação sobre contribuidores a este pacote.
 
-%description -l sv_SE
+%description -l sv
 httptunnel skapar en virtuell tvåvägs kommunikationskanal tunnlad i
 HTTP-paket. HTTP-paketen kan skickas via en HTTP-proxy om så önskas.
 Detta kan vara användbart för användare bakom en restriktiv firewall.
