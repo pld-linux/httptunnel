@@ -1,6 +1,6 @@
 Summary:	Tunnelizes connection via HTTP
-Summary(pl):	Tunelowanie po³±czeñ po HTTP
-Summary(pt):	Tuneliza conexões via HTTP
+Summary(pl.UTF-8):   Tunelowanie poÅ‚Ä…czeÅ„ po HTTP
+Summary(pt.UTF-8):   Tuneliza conexÃµes via HTTP
 Name:		httptunnel
 Version:	3.3
 Release:	4
@@ -30,52 +30,52 @@ the firewall.
 httptunnel is written and maintained by Lars Brinkhoff. See the file
 AUTHORS for more information about contributors to this package.
 
-%description -l pl
-httptunnel tworzy dwukierunkow± wirtualn± drogê dla danych tunelowan±
-przez ¿±dania HTTP. ¯±dania mog± byæ wysy³ane przez HTTP proxy, je¶li
-jest taka potrzeba. Program jest przydatny dla u¿ytkowników za bardzo
-restrykcyjnymi firewallami. Je¿eli dostêp do WWW jest przez proxy
-HTTP, mo¿na u¿ywaæ httptunnelu i np. telnetu lub PPP, aby po³±czyæ siê
+%description -l pl.UTF-8
+httptunnel tworzy dwukierunkowÄ… wirtualnÄ… drogÄ™ dla danych tunelowanÄ…
+przez Å¼Ä…dania HTTP. Å»Ä…dania mogÄ… byÄ‡ wysyÅ‚ane przez HTTP proxy, jeÅ›li
+jest taka potrzeba. Program jest przydatny dla uÅ¼ytkownikÃ³w za bardzo
+restrykcyjnymi firewallami. JeÅ¼eli dostÄ™p do WWW jest przez proxy
+HTTP, moÅ¼na uÅ¼ywaÄ‡ httptunnelu i np. telnetu lub PPP, aby poÅ‚Ä…czyÄ‡ siÄ™
 z komputerem za firewallem.
 
-%description -l pt_BR
+%description -l pt_BR.UTF-8
 httptunnel cria um caminho virtual bidirecional tunelado em
-requisições HTTP. As requisições HTTP podem ser enviadas via um proxy
-HTTP se desejado. Isto pode ser útil para usuários atrás de firewalls
-restritivos. Se o acesso WWW for permitido pelo proxy HTTP, é possível
+requisiÃ§Ãµes HTTP. As requisiÃ§Ãµes HTTP podem ser enviadas via um proxy
+HTTP se desejado. Isto pode ser Ãºtil para usuÃ¡rios atrÃ¡s de firewalls
+restritivos. Se o acesso WWW for permitido pelo proxy HTTP, Ã© possÃ­vel
 usar o httptunnel e, digamos, telnet ou PPP para conectar a um
 computador fora do firewall.
 
-httptunnel é escrito e mantido por Lars Brinkhoff. Veja o arquivo
-AUTHORS para mais informação sobre contribuidores a este pacote.
+httptunnel Ã© escrito e mantido por Lars Brinkhoff. Veja o arquivo
+AUTHORS para mais informaÃ§Ã£o sobre contribuidores a este pacote.
 
-%description -l sv
-httptunnel skapar en virtuell tvåvägs kommunikationskanal tunnlad i
-HTTP-paket. HTTP-paketen kan skickas via en HTTP-proxy om så önskas.
-Detta kan vara användbart för användare bakom en restriktiv firewall.
-Om webben är tillgänglig genom en HTTP-proxy, är det möjligt att
-använda httptunnel, och exempelvis telnet eller PPP för att koppla upp
-sig mot en dator utanför firewallen.
+%description -l sv.UTF-8
+httptunnel skapar en virtuell tvÃ¥vÃ¤gs kommunikationskanal tunnlad i
+HTTP-paket. HTTP-paketen kan skickas via en HTTP-proxy om sÃ¥ Ã¶nskas.
+Detta kan vara anvÃ¤ndbart fÃ¶r anvÃ¤ndare bakom en restriktiv firewall.
+Om webben Ã¤r tillgÃ¤nglig genom en HTTP-proxy, Ã¤r det mÃ¶jligt att
+anvÃ¤nda httptunnel, och exempelvis telnet eller PPP fÃ¶r att koppla upp
+sig mot en dator utanfÃ¶r firewallen.
 
-httptunnel är skriven och underhållen av Lars Brinkhoff. Se filen
-AUTHORS för mer information om vilka som har bidragit till detta
+httptunnel Ã¤r skriven och underhÃ¥llen av Lars Brinkhoff. Se filen
+AUTHORS fÃ¶r mer information om vilka som har bidragit till detta
 paket.
 
 %package client
 Summary:	HTTP tunnel client
-Summary(pl):	Klient tunelu HTTP
+Summary(pl.UTF-8):   Klient tunelu HTTP
 Group:		Networking/Daemons
 Requires:	%{name} = %{version}-%{release}
 
 %description client
 HTTP tunnel client.
 
-%description client -l pl
+%description client -l pl.UTF-8
 Klient tunelu HTTP.
 
 %package server
 Summary:	HTTP tunnel server
-Summary(pl):	Server tunelu HTTP
+Summary(pl.UTF-8):   Server tunelu HTTP
 Group:		Networking/Daemons
 Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}-%{release}
@@ -84,7 +84,7 @@ Requires:	rc-scripts
 %description server
 HTTP tunnel server.
 
-%description server -l pl
+%description server -l pl.UTF-8
 Server tunelu HTTP.
 
 %prep
