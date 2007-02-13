@@ -1,6 +1,6 @@
 Summary:	Tunnelizes connection via HTTP
-Summary(pl.UTF-8):   Tunelowanie połączeń po HTTP
-Summary(pt.UTF-8):   Tuneliza conexões via HTTP
+Summary(pl.UTF-8):	Tunelowanie połączeń po HTTP
+Summary(pt.UTF-8):	Tuneliza conexões via HTTP
 Name:		httptunnel
 Version:	3.3
 Release:	4
@@ -63,7 +63,7 @@ paket.
 
 %package client
 Summary:	HTTP tunnel client
-Summary(pl.UTF-8):   Klient tunelu HTTP
+Summary(pl.UTF-8):	Klient tunelu HTTP
 Group:		Networking/Daemons
 Requires:	%{name} = %{version}-%{release}
 
@@ -75,7 +75,7 @@ Klient tunelu HTTP.
 
 %package server
 Summary:	HTTP tunnel server
-Summary(pl.UTF-8):   Server tunelu HTTP
+Summary(pl.UTF-8):	Server tunelu HTTP
 Group:		Networking/Daemons
 Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}-%{release}
