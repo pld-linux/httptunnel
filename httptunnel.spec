@@ -5,7 +5,7 @@ Name:		httptunnel
 Version:	3.3
 Release:	4
 License:	GPL
-Group:		Networking/Daemons
+Group:		Networking/Utilities
 Source0:	ftp://ftp.nocrew.org/pub/nocrew/unix/%{name}-%{version}.tar.gz
 # Source0-md5:	493cc0f5f21e9955db27ee9cd9a976d5
 Source1:	%{name}.init
@@ -64,7 +64,7 @@ paket.
 %package client
 Summary:	HTTP tunnel client
 Summary(pl.UTF-8):	Klient tunelu HTTP
-Group:		Networking/Daemons
+Group:		Applications/Networking
 Requires:	%{name} = %{version}-%{release}
 
 %description client
@@ -76,7 +76,7 @@ Klient tunelu HTTP.
 %package server
 Summary:	HTTP tunnel server
 Summary(pl.UTF-8):	Server tunelu HTTP
-Group:		Networking/Daemons
+Group:		Networking/Daemons/HTTP
 Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}-%{release}
 Requires:	rc-scripts
