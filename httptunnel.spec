@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Tunelowanie połączeń po HTTP
 Summary(pt.UTF-8):	Tuneliza conexões via HTTP
 Name:		httptunnel
 Version:	3.3
-Release:	5
+Release:	6
 License:	GPL
 Group:		Networking/Utilities
 Source0:	ftp://ftp.nocrew.org/pub/nocrew/unix/%{name}-%{version}.tar.gz
@@ -97,7 +97,8 @@ rm -rf missing port
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	CFLAGS="%{rpmcflags} -std=gnu89"
 %{__make}
 
 %install
